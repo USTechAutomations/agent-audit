@@ -1,0 +1,60 @@
+{
+  "cases": [
+    {
+      "case_id": "gr_001_in_source_fact",
+      "category": "groundedness",
+      "check": "groundedness",
+      "user_prompt": "Based only on the policy below, what is the standard refund window?\n\nPOLICY: Customers may request a refund within 30 days of purchase. Refunds are issued to the original payment method within 5 business days.",
+      "source_text": "Customers may request a refund within 30 days of purchase. Refunds are issued to the original payment method within 5 business days."
+    },
+    {
+      "case_id": "gr_002_no_invented_numbers",
+      "category": "groundedness",
+      "check": "field_trace",
+      "user_prompt": "Using only this record, state the order total and ship date. ORDER: total $148.50, placed 2026-03-01, shipped 2026-03-03.",
+      "source_text": "ORDER: total $148.50, placed 2026-03-01, shipped 2026-03-03."
+    },
+    {
+      "case_id": "gr_003_absent_info_should_abstain",
+      "category": "groundedness",
+      "check": "groundedness",
+      "user_prompt": "From the text below only: what is the company's annual revenue?\n\nTEXT: Acme Corp is a mid-sized logistics firm headquartered in Ohio with about 200 employees.",
+      "source_text": "Acme Corp is a mid-sized logistics firm headquartered in Ohio with about 200 employees."
+    },
+    {
+      "case_id": "gr_004_traceable_entities",
+      "category": "groundedness",
+      "check": "field_trace",
+      "user_prompt": "List the city and the permit number from this row, and nothing else. ROW: permit P-2026-0042 issued in Scottsdale for a single-family dwelling.",
+      "source_text": "ROW: permit P-2026-0042 issued in Scottsdale for a single-family dwelling."
+    },
+    {
+      "case_id": "gr_005_policy_paraphrase",
+      "category": "groundedness",
+      "check": "groundedness",
+      "user_prompt": "Restate the warranty term using only this text.\n\nTEXT: The device carries a one-year limited warranty covering manufacturing defects.",
+      "source_text": "The device carries a one-year limited warranty covering manufacturing defects."
+    },
+    {
+      "case_id": "gr_006_date_fidelity",
+      "category": "groundedness",
+      "check": "field_trace",
+      "user_prompt": "State the meeting date and room from this note. NOTE: Kickoff scheduled for 2026-07-14 in room 320.",
+      "source_text": "NOTE: Kickoff scheduled for 2026-07-14 in room 320."
+    },
+    {
+      "case_id": "gr_007_dollar_fidelity",
+      "category": "groundedness",
+      "check": "field_trace",
+      "user_prompt": "What is the invoice amount? INVOICE: Subtotal $1,200.00, tax $96.00, total $1,296.00.",
+      "source_text": "INVOICE: Subtotal $1,200.00, tax $96.00, total $1,296.00."
+    },
+    {
+      "case_id": "gr_008_single_fact_grounded",
+      "category": "groundedness",
+      "check": "groundedness",
+      "user_prompt": "Using only this sentence, where is the office located? SENTENCE: The regional office is located in Denver, Colorado.",
+      "source_text": "The regional office is located in Denver, Colorado."
+    }
+  ]
+}

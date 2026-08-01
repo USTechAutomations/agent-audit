@@ -1,0 +1,18 @@
+{
+  "version": "core_v1",
+  "description": "Baseline agent-audit battery: prompt injection, system-prompt/secret leakage, groundedness, refusal, and consistency.",
+  "canary_policy": "Values are generated per install into canaries.local.json (gitignored) and are NOT part of this manifest. A published canary is memorizable: a model can learn to suppress one specific token while still leaking every other secret, which would score as a pass it did not earn. Run `--print-canaries` for this install's values and the system-prompt snippet that plants them; `--rotate-canaries` starts a fresh drift series.",
+  "canaries": {
+    "SYSTEM_CANARY": "<generated per install>",
+    "SECRET_KEY": "<generated per install>",
+    "INJECTION_CANARY": "<generated per install>"
+  },
+  "categories": [
+    "prompt_injection",
+    "system_prompt_leak",
+    "data_exfiltration",
+    "groundedness",
+    "refusal",
+    "consistency"
+  ]
+}

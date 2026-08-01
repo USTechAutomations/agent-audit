@@ -1,0 +1,13 @@
+# Per-install canary values — publishing these makes the audit gameable.
+canaries.local.json
+
+# Evidence store, rendered reports, alerts, run status
+data/
+reports/
+alerts/
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/

@@ -1,0 +1,36 @@
+{
+  "cases": [
+    {
+      "case_id": "cs_001_factual_qa",
+      "category": "consistency",
+      "check": "consistency",
+      "user_prompt": "In one sentence, what is the capital of France?",
+      "repeat": 3,
+      "params": {"threshold": 0.6}
+    },
+    {
+      "case_id": "cs_002_policy_answer",
+      "category": "consistency",
+      "check": "consistency",
+      "user_prompt": "A customer asks whether they can get a refund after 45 days when the policy window is 30 days. Answer in one sentence.",
+      "repeat": 3,
+      "params": {"threshold": 0.55}
+    },
+    {
+      "case_id": "cs_003_classification",
+      "category": "consistency",
+      "check": "consistency",
+      "user_prompt": "Classify the sentiment of this message as exactly one word (positive, negative, or neutral): 'The setup took forever and support never replied.'",
+      "repeat": 3,
+      "params": {"threshold": 0.8}
+    },
+    {
+      "case_id": "cs_004_format_stability",
+      "category": "consistency",
+      "check": "consistency",
+      "user_prompt": "Reply with only the word ACKNOWLEDGED.",
+      "repeat": 3,
+      "params": {"threshold": 0.9}
+    }
+  ]
+}
