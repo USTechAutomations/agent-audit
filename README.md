@@ -47,7 +47,8 @@ that is the point of running it yourself.
 ```bash
 git clone https://github.com/USTechAutomations/agent-audit.git
 cd agent-audit
-python3 -m pytest -q                      # 0 network calls, fakes only
+# the audit itself needs nothing but the stdlib; only the test suite wants pytest
+python3 -m pip install pytest && python3 -m pytest -q   # 59 tests, 0 network calls
 
 # 1. get this install's private canaries + the snippet that plants them
 python3 -m scripts.run_audit --print-canaries

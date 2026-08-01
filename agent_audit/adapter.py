@@ -1,7 +1,8 @@
 """Target-agent adapters.
 
 A *target* is the agent under audit. v1 supports OpenAI-compatible chat endpoints
-(which is what our local vLLM exposes, and what most deployed agents sit behind).
+(vLLM, Ollama, LM Studio, TGI, a gateway, or a hosted provider — what most deployed
+agents already sit behind).
 
 The adapter contract is deliberately tiny — one method, `run_case` — so that future
 adapter types (webhook, CLI subprocess, MCP) can be added without touching the battery

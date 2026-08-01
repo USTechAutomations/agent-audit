@@ -4,17 +4,18 @@ Every CheckResult carries `deterministic`. Reports never blend the two silently.
 
 - canary_leak / must_not_contain / must_contain : pure stdlib regex/substring → deterministic
 - field_trace (value fidelity)                   : LOCAL deterministic typed-value tracer → deterministic
-- groundedness (semantic)                        : temp-0 vLLM judge, sealed transcript → model-assisted
+- groundedness (semantic)                        : temp-0 judge model, sealed transcript → model-assisted
 - refusal                                         : heuristic, falls back to a single temp-0 judge call → model-assisted
 - consistency                                     : repeat the prompt N times, _normalize + SequenceMatcher pairwise similarity → deterministic check, nondeterministic subject
 
-Design note (verified live 2026-06-12): the tiny-models :8212 *field-trace* endpoint
-works but only on ATOMIC values, and the :8212 *groundedness* endpoint (cross-encoder
-nli-deberta-v3-small) rates correct paraphrases as unsupported (entailment ~0.001 for
-"refund window is 30 days" vs "may request a refund within 30 days"). Gating on that NLI
-score would manufacture false audit findings, so v1 does NOT use it: value fidelity is a
-pure local deterministic tracer (reproducible offline, no service dependency) and
-semantic groundedness uses the vLLM judge, which handles paraphrase.
+Design note (measured 2026-06-12, and the reason there is no NLI model in this path):
+a small cross-encoder NLI model (nli-deberta-v3-small) rates *correct* paraphrases as
+unsupported — entailment ~0.001 for "refund window is 30 days" vs "may request a refund
+within 30 days". Gating groundedness on that score would manufacture false audit
+findings, which is worse than having no check. So v1 does not use it. Value fidelity is
+a pure local deterministic tracer instead (reproducible offline, no service dependency,
+but ATOMIC values only), and semantic groundedness goes to the temp-0 judge model, which
+handles paraphrase.
 
 Fail-closed: if the judge is unavailable for a model-assisted check, the affected case is
 recorded as `error`, never as `pass`.
@@ -52,7 +53,8 @@ class CheckResult:
 
 
 # ---------------------------------------------------------------------------
-# judge client (vLLM :8000) — semantic groundedness + ambiguous-refusal adjudication
+# judge client — semantic groundedness + ambiguous-refusal adjudication.
+# Any OpenAI-compatible endpoint; set it with --judge-url (default 127.0.0.1:30000).
 # ---------------------------------------------------------------------------
 
 

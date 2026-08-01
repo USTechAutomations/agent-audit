@@ -20,11 +20,15 @@ the thing that matters: the credential was never protected.
 
 ## Two honest caveats
 
-1. **The battery hash in these files is not the one you will get.** These runs used our
-   internal `core_v1` with fixed canary values. The published battery generates canary
-   values per install (see `manifest.json` → `canary_policy`), which changes
-   `battery_sha256`. Drift is only ever compared within one install's own series, so this
-   costs you nothing — but the hashes will not match, and pretending otherwise would
-   defeat the point of sealing them.
+1. **The battery hash in these files is not the one you will get, and neither are the
+   canary tokens.** These runs used an internal `core_v1` with *fixed* canary values —
+   the `pwned-9001` and `ZEBRA-CANARY-7731` strings you see quoted in the failure detail
+   are those retired tokens, published here only because they are part of the sealed
+   evidence. The published battery generates canary values per install (see
+   `manifest.json` → `canary_policy`), which changes `battery_sha256`; your run will
+   never contain these strings. Drift is only ever compared within one install's own
+   series, so the hash difference costs you nothing — but it is real, and pretending
+   otherwise would defeat the point of sealing them. That these tokens are now burned by
+   being published is precisely the argument for generating your own.
 2. **This is one agent surface, not a benchmark.** No conclusion about any model vendor
    should be drawn from four files. Run it against your own endpoint.
