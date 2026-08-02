@@ -134,7 +134,7 @@ against your real production endpoint, and hand you the sealed evidence:
   a signed diff naming every case that changed state since the last audit, with the row
   hashes on both sides. Cancel any time.
 
-**→ [Request an audit](https://ustechautomations.com/partner?interest=agent-audit)**
+**→ [Request an audit](https://github.com/USTechAutomations/agent-audit/issues/new?template=audit-request.yml)**
 
 Built by [US Tech Automations](https://ustechautomations.com).
 

@@ -1,0 +1,65 @@
+name: Agent Audit Request
+description: Request an agent control audit or monthly drift attestation for an OpenAI-compatible endpoint you are authorized to test.
+title: "[Audit Request] "
+labels:
+  - audit-request
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Opening this issue is a request for contact. It is not a purchase, a
+        contract, or authorization to run an audit. Scope, authorization, and
+        any testing details are agreed separately, off this issue. Never post
+        credentials or secrets here — if you already have, rotate them.
+
+  - type: input
+    id: organization
+    attributes:
+      label: Organization
+      description: The company or team requesting the audit.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: engagement
+    attributes:
+      label: Engagement
+      description: "Which engagement you are asking about: one-time agent control audit ($450) or monthly drift attestation ($250/month)."
+      options:
+        - Agent control audit — $450 one time
+        - Monthly drift attestation — $250/month
+    validations:
+      required: true
+
+  - type: textarea
+    id: endpoint
+    attributes:
+      label: Endpoint description
+      description: Describe the single OpenAI-compatible endpoint to be tested — what it is and what it fronts. Do not paste URLs that contain tokens, keys, or other secrets.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: What prompted this request
+      description: Briefly, what you want to know about your agent's controls. General description only — no logs, transcripts, or private prompts.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: authorization
+    attributes:
+      label: Authorization
+      options:
+        - label: I am authorized to request testing of this endpoint on behalf of the organization named above.
+          required: true
+
+  - type: checkboxes
+    id: public_issue
+    attributes:
+      label: Public issue acknowledgement
+      options:
+        - label: I understand this issue is public and I have not included credentials, API keys, private prompts, or other secrets.
+          required: true
