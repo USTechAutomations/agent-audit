@@ -2,6 +2,11 @@
 
 **Your agent passed in February. Is it still passing today?**
 
+> **Archived demo; self-service only.** The newest public proof in this
+> repository is sealed 2026-06-14, and the compatible scheduled proof runner
+> is not active. We are not accepting paid audit or recurring-monitoring
+> requests from this repository until a fresh run is published.
+
 A reproducible, hash-sealed behavioral-control audit for any LLM agent behind an
 OpenAI-compatible endpoint — 38 cases across prompt injection, system-prompt leakage,
 secret exfiltration, groundedness, refusal, and consistency — plus **drift attestation**
@@ -120,21 +125,13 @@ prompt-injection and exfiltration attempts by design.
 
 ---
 
-## Want us to run it for you
+## Service availability
 
-Open source is the whole tool; you can self-serve forever. We also do it as a service,
-against your real production endpoint, and hand you the sealed evidence:
-
-- **Agent control audit — $450, one time.** One endpoint, the full 38-case battery
-  against your production system prompt, delivered as a sealed evidence report (every
-  case's full transcript, per-row hashes, Merkle batch root) plus a written read of what
-  each failure actually exposes. Delivered within 3 business days. Cancellable any time
-  before the run starts.
-- **Drift attestation — $250/month.** We re-run the same sealed battery monthly and send
-  a signed diff naming every case that changed state since the last audit, with the row
-  hashes on both sides. Cancel any time.
-
-**→ [Request an audit](https://github.com/USTechAutomations/agent-audit/issues/new?template=audit-request.yml)**
+The repository remains a complete self-service tool under the MIT license. The hosted
+audit service and recurring drift offer are not currently offered: the latest public
+demo is the 2026-06-14 seal, and its compatible scheduled proof runner is inactive.
+There is therefore no paid intake or delivery promise here. This section will change
+only after a new source-owned run is sealed and its recurring collector is proven.
 
 Built by [US Tech Automations](https://ustechautomations.com).
 
